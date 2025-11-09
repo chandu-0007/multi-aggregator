@@ -1,0 +1,11 @@
+-- CreateTable
+CREATE TABLE "OTP" (
+    "Userid" TEXT NOT NULL,
+    "CreatedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "OTP_Userid_key" ON "OTP"("Userid");
+
+-- AddForeignKey
+ALTER TABLE "OTP" ADD CONSTRAINT "OTP_Userid_fkey" FOREIGN KEY ("Userid") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

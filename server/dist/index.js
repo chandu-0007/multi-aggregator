@@ -11,4 +11,11 @@ app.use('/user', userRouter);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+function OtpGenerate() {
+    const random = Math.floor(1000 + Math.random() * 9000);
+    console.log(Math.random());
+    console.log(Math.random() * 9000);
+    console.log("generated otp is ", random);
+}
+OtpGenerate();
 //# sourceMappingURL=index.js.map

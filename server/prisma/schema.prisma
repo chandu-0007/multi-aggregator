@@ -5,9 +5,9 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
+
 
 datasource db {
   provider = "postgresql"
@@ -20,5 +20,13 @@ model user {
   username String @unique
   phone  Int @unique
   HashPassword String 
+  CreatedAt DateTime @default(now())
+  OTP  OTP?
+}
+
+model OTP{
+  Userid   String @unique  
+  otp      Int  
+  user user @relation(fields: [Userid ] , references: [id])
   CreatedAt DateTime @default(now())
 }
